@@ -1,0 +1,7 @@
+train_path = './data/data_train.xlsx'
+test_path = './data/data_test.xlsx'
+x_train_file_path = './data/X_train.pkl'
+y_train_file_path = './data/y_train.pkl'
+x_test_file_path = './data/X_test.pkl'
+y_test_file_path = './data/y_test.pkl'
+model_path = './models/model_sentiment.bin'
