@@ -12,6 +12,7 @@ from transformers.modeling_utils import *
 from utils import *
 import constant
 import paths
+from models import *
 
 bpe = Tokenizer(bert_type='bert-base-multilingual-cased').bertTokenizer
 
@@ -65,7 +66,9 @@ for fold, (train_idx, val_idx) in enumerate(splits):
     train_dataset = torch.utils.data.TensorDataset(torch.tensor(X_train[train_idx],dtype=torch.long), torch.tensor(y_train[train_idx],dtype=torch.long))
     valid_dataset = torch.utils.data.TensorDataset(torch.tensor(X_train[val_idx],dtype=torch.long), torch.tensor(y_train[val_idx],dtype=torch.long))
     tq = tqdm(range(constant.epochs + 1))
+    
     for epoch in tq:
+
         val_preds = None
         train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=constant.batch_size, shuffle=True)
         valid_loader = torch.utils.data.DataLoader(valid_dataset, batch_size=constant.batch_size, shuffle=False)
